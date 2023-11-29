@@ -1,27 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Kanit&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(-10%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+      transform: translateY(0);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .bounce {
+    animation: bounce 700ms infinite;
+  }
+  .kanit {
+    font-family: 'Kanit';
+  }
+  .line-middle {
+      overflow: hidden;
+      text-align: center;
+  }
+  .line-middle::after, .line-middle::before {
+      background-color: #A9A9A9;
+      content: "";
+      display: inline-block;
+      height: 1px;
+      position: relative;
+      vertical-align: middle;
+      width: 50%;
+  }
+  .line-middle::after {
+      left: 0.5em;
+      margin-right: -50%;
+  }
+  .line-middle::before {
+      right: 0.5em;
+      margin-left: -50%;
+  }
+  .warning {
+    @apply bg-yellow-500 text-white
+  }
+
+  .fade-in {
+    animation: fade-in 500ms ease-in-out forwards;
+  }
 }
