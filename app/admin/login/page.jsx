@@ -39,12 +39,28 @@ export default function AdminLogin() {
                         method: 'POST',
                         body: JSON.stringify(values)
                     })
+                    const data = await res.json()
 
                     setLoading2(false)
                     
                     if (res.status === 201) {
-                        const data = await res.json()
-                        router.push('/dashboard')
+                        switch(data.role) {
+                            case "Lãnh đạo công ty": 
+                                router.push("/admin/companyManager")
+                                break
+                            case "Trưởng điểm tập kết": 
+                                router.push("/admin/gatheringPointManager")
+                                break
+                            case "Trưởng điểm giao dịch":
+                                router.push("/admin/tradingPointManager")
+                                break
+                            case "Nhân viên tập kết":
+                                router.push("/admin/tradingPointStaff")
+                                break
+                            case "Nhân viên giao dịch":
+                                router.push("/admin/tradingPointStaff")
+                                break
+                        }
                     } else if (res.status === 404) {
                         setInvalidAcc(true)
                         setTimeout(() => {

@@ -41,6 +41,7 @@ export default function Login () {
                     setLoading(false)
                     
                     if (res.status === 201) {
+                        sessionStorage.setItem("account", JSON.stringify(data))
                         router.push('/dashboard')
                     } else if (res.status === 404) {
                         setAppear(true)
