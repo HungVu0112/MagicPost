@@ -41,10 +41,7 @@ export default function Login () {
                     setLoading(false)
                     
                     if (res.status === 201) {
-                        router.push({
-                            pathname: '/dashboard',
-                            query: data,
-                        }, '/dashboard')
+                        router.push('/dashboard')
                     } else if (res.status === 404) {
                         setAppear(true)
                         setTimeout(() => {
