@@ -17,11 +17,12 @@ import { useState } from 'react'
 
 export default function AdminLogin() {
     const [isShown, setIsShown] = useState(false)
-    const [isValid, setIsValid] = useState(false)
+    const [isValid, setIsValid] = useState(true)
     const [password, setPassword] = useState("")
     const [loading1, setLoading1] = useState(false)
     const [loading2, setLoading2] = useState(false)
-    const [appear, setAppear] = useState(false)
+    const [wrongPass, setWrongPass] = useState(false)
+    const [invalidAcc, setInvalidAcc] = useState(false)
     const router = useRouter()
     const formik = useFormik({
         initialValues: {
@@ -29,6 +30,32 @@ export default function AdminLogin() {
             password: '',
         },
         validate: validateLogin,
+        onSubmit: values => {
+            try {
+                setLoading2(true)
+
+                setTimeout(async () => {
+                    const res = await fetch('/api/admin/login', {
+                        method: 'POST',
+                        body: JSON.stringify(values)
+                    })
+
+                    setLoading2(false)
+                    
+                    if (res.status === 201) {
+                        const data = await res.json()
+                        router.push('/dashboard')
+                    } else if (res.status === 404) {
+                        setInvalidAcc(true)
+                        setTimeout(() => {
+                            setInvalidAcc(false)
+                        }, 3000)
+                    }
+                }, 2000)
+            } catch (error) {
+                console.log(error)
+            }
+        }
     })
 
     const handleCLick = () => {
@@ -147,7 +174,8 @@ export default function AdminLogin() {
             </div>
                 </div>
             )}
-            {appear && <Toast type="warning" message="Mật khẩu không hợp lệ" setAppear={setAppear}/>}
+            {wrongPass && <Toast type="warning" message="Mật khẩu không hợp lệ" setAppear={setWrongPass}/>}
+            {invalidAcc && <Toast type="warning" message="Số điện thoại hoặc mật khẩu không hợp lệ" setAppear={setInvalidAcc}/>}
         </>
     )
 }
