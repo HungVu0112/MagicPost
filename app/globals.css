@@ -78,6 +78,6 @@ input[type=number] {
   }
 
   .fade-in {
-    animation: fade-in 500ms ease-in-out forwards;
+    animation: fade-in 200ms ease-in-out forwards;
   }
 }

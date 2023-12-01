@@ -44,6 +44,7 @@ export default function AdminLogin() {
                     setLoading2(false)
                     
                     if (res.status === 201) {
+                        sessionStorage.setItem("adminAccount", JSON.stringify(data))
                         switch(data.role) {
                             case "Lãnh đạo công ty": 
                                 router.push("/admin/companyManager")
