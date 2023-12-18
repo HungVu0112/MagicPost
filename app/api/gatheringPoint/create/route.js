@@ -2,7 +2,7 @@ import { connectToDB } from "@/utils/database";
 import GatheringPoint from "@/models/gatheringPoint";
 
 export const POST = async (req) => {
-    const { id, location, importOrder, exportOrder, staff } = await req.json()
+    const { id, location, importOrder, exportOrder } = await req.json()
 
     try {
         await connectToDB()
@@ -15,7 +15,6 @@ export const POST = async (req) => {
                 location,
                 importOrder,
                 exportOrder,
-                staff,
             })
     
             await newGatheringPoint.save()

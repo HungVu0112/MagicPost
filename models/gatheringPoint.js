@@ -16,10 +16,6 @@ const GatheringPointSchema = new Schema({
     exportOrder: {
         type: [Schema.Types.String],
         required: true,
-    },
-    staff: {
-        type: [Schema.Types.String],
-        required: true,
     }
 })
 

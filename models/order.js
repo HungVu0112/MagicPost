@@ -52,7 +52,7 @@ const OrderSchema = new Schema({
         required: true,
     },
     weight: {
-        type: String,
+        type: Number,
         required: true,
     },
     amount: {
@@ -69,7 +69,7 @@ const OrderSchema = new Schema({
     },
     pay: {
         type: Boolean,
-        required: true
+        required: true,
     },
     sendDate: {
         type: Date,
@@ -77,7 +77,18 @@ const OrderSchema = new Schema({
     },
     receiveDate: {
         type: Date,
-        required: true
+    },
+    orderID: {
+        type: String,
+        required: true,
+    },
+    city: {
+        type: String,
+        required: true,
+    },
+    district: {
+        type: String,
+        required: true,
     }
 })
 

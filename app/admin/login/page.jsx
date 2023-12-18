@@ -59,7 +59,7 @@ export default function AdminLogin() {
                                 router.push("/admin/tradingPointStaff")
                                 break
                             case "Nhân viên giao dịch":
-                                router.push("/admin/tradingPointStaff")
+                                router.push("/admin/tradingPointStaff/createOrder")
                                 break
                         }
                     } else if (res.status === 404) {
