@@ -5,6 +5,10 @@ const TradingPointSchema = new Schema({
         type: String,
         required: true,
     },
+    id: {
+        type: String,
+        required: true,
+    },
     location: {
         type: String,
         required: true,

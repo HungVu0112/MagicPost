@@ -32,15 +32,16 @@ export default function Login () {
                 setLoading(true)
 
                 setTimeout(async () => {
+                    formik.setSubmitting(false)
                     const res = await fetch('/api/user/login', {
                         method: 'POST',
                         body: JSON.stringify(values)
                     })
-                    const data = await res.json()
 
                     setLoading(false)
                     
                     if (res.status === 201) {
+                        const data = await res.json()
                         sessionStorage.setItem("account", JSON.stringify(data))
                         router.push('/dashboard')
                     } else if (res.status === 404) {
@@ -118,7 +119,7 @@ export default function Login () {
                         </button>
                     </form>
 
-                    <p className='mt-4 font-bold text-[#A9A9A9] text-center'>Bạn chưa có tài khoản ? <Link href='/authen/signup' className='text-[#FF5B00] underline underline-offset-2'>Đăng ký</Link></p>
+                    <p className='mt-4 font-bold text-[#A9A9A9] text-center'>Bạn chưa có tài khoản ? <Link href='/auth/signup' className='text-[#FF5B00] underline underline-offset-2'>Đăng ký</Link></p>
                     
                 </div>
                 <div className='xl:w-[70%] lg:w-[50%] w-[0] h-full relative items-center bg-[#FF5B00]'>

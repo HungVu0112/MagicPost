@@ -25,11 +25,7 @@ const AdminSchema = new Schema({
     },
     location: {
         type: String, 
-        required: true,
-        if: {
-            path: "role",
-            value: ['Trưởng điểm tập kết', 'Trưởng điểm giao dịch', 'Nhân viên giao dịch', 'Nhân viên tập kết']
-        }
+        required: true, 
     },
 })
 

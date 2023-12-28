@@ -2,7 +2,7 @@ import { connectToDB } from "@/utils/database";
 import TradingPoint from "@/models/tradingPoint";
 
 export const POST = async (req) => {
-    const { parent_id, location, importOrder, exportOrder, staff } = await req.json()
+    const { parent_id, id, location, importOrder, exportOrder } = await req.json()
 
     try {
         await connectToDB()
@@ -12,10 +12,10 @@ export const POST = async (req) => {
         if (!checkExist) {
             const newTradingPoint = new TradingPoint({
                 parent_id,
+                id,
                 location,
                 importOrder,
                 exportOrder,
-                staff,
             })
     
             await newTradingPoint.save()

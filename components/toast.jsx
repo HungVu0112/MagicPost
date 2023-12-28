@@ -4,7 +4,7 @@ import { FaCheckCircle } from "react-icons/fa";
 
 const Toast = ({ type, message, setAppear }) => {
   return (
-    <div className={`flex items-center justify-between absolute top-4 right-4 p-4 w-[400px] h-[80px] rounded-lg shadow fade-in ${type}`}>
+    <div className={`flex items-center justify-between fixed top-4 right-4 p-4 w-[400px] h-[80px] rounded-lg shadow fade-in z-10 ${type}`}>
         <div className="flex gap-2 items-center">
             {type === 'warning' && <IoWarning size={30} />}
             {type === 'success' && <FaCheckCircle size={30} />}

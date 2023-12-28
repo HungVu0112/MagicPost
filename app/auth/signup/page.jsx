@@ -37,6 +37,7 @@ export default function Signup () {
                 setLoading(true)
 
                 setTimeout(async () => {
+                    formik.setSubmitting(false)
                     const res = await fetch('/api/user/signup', {
                         method: 'POST',
                         body: JSON.stringify(values)
@@ -169,7 +170,7 @@ export default function Signup () {
                         </button>
                     </form>
 
-                    <p className='mt-4 font-bold text-[#A9A9A9] text-center'>Bạn đã có tài khoản ? <Link href='/authen/login' className='text-[#FF5B00] underline underline-offset-2'>Đăng nhập</Link></p>
+                    <p className='mt-4 font-bold text-[#A9A9A9] text-center'>Bạn đã có tài khoản ? <Link href='/auth/login' className='text-[#FF5B00] underline underline-offset-2'>Đăng nhập</Link></p>
                     
                 </div>
                 <div className='xl:w-[70%] lg:w-[50%] w-[0] h-full relative items-center bg-[#FF5B00]'>

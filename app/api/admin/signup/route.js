@@ -3,7 +3,7 @@ import Admin from "@/models/admin";
 const bcrypt = require("bcrypt")
 
 export const POST = async (req) => {
-    const { name, phoneNumber, password, role } = await req.json()
+    const { name, phoneNumber, password, role, location } = await req.json()
 
     try {
         await connectToDB()
@@ -16,6 +16,7 @@ export const POST = async (req) => {
                 phoneNumber,
                 password: await bcrypt.hash(password.trim(), 10),
                 role,
+                location
             })
 
             await newAdmin.save()

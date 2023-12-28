@@ -6,7 +6,9 @@ const OrderSchema = new Schema({
         required: true,
     },
     sender: {
-        type: {
+        type: Object,
+        required: true,
+        default: {
             name: {
                 type: String,
                 required: true,
@@ -22,12 +24,21 @@ const OrderSchema = new Schema({
             zipcode: {
                 type: String,
                 required: true,
+            },
+            city: {
+                type: String,
+                required: true,
+            },
+            district: {
+                type: String,
+                required: true,
             }
-        },
-        required: true,
+        }
     },
     receiver: {
-        type: {
+        type: Object,
+        required: true,
+        default: {
             name: {
                 type: String,
                 required: true,
@@ -43,9 +54,16 @@ const OrderSchema = new Schema({
             zipcode: {
                 type: String,
                 required: true,
+            },
+            city: {
+                type: String,
+                required: true,
+            },
+            district: {
+                type: String,
+                required: true,
             }
-        },
-        required: true,
+        }
     },
     type: {
         type: String,
@@ -59,38 +77,51 @@ const OrderSchema = new Schema({
         type: Number,
         required: true,
     },
-    note: {
-        type: String,
-        required: true,
-    },
-    price: {
+    width: {
         type: Number,
         required: true,
     },
-    pay: {
-        type: Boolean,
+    height: {
+        type: Number,
         required: true,
     },
-    sendDate: {
-        type: Date,
+    length: {
+        type: Number,
         required: true,
     },
-    receiveDate: {
-        type: Date,
+    note: {
+        type: String,
+    },
+    price: {
+        type: Object,
+        required: true,
+        default: {
+            total: {
+                type: Number,
+                required: true,
+            },
+            service_fee: {
+                type: Number,
+                required: true,
+            },
+            insurance_fee: {
+                type: Number,
+                required: true,
+            },
+            pick_station_fee: {
+                type: Number,
+                required: true,
+            },
+        }
     },
     orderID: {
         type: String,
         required: true,
     },
-    city: {
-        type: String,
-        required: true,
-    },
-    district: {
-        type: String,
-        required: true,
-    }
-})
+}, {
+    timestamps: true,
+}
+)
 
 const Order = models.Order || model('Order', OrderSchema)
 

@@ -10,6 +10,7 @@ import { useFormik } from "formik";
 import { validateLogin } from "@/script/validation";
 import { useRouter } from "next/navigation";
 import { AiOutlineLoading } from "react-icons/ai";
+import { BsFillPeopleFill } from "react-icons/bs";
 import Image from 'next/image'
 import Toast from "@/components/toast";
 import { GrUserManager } from "react-icons/gr";
@@ -35,28 +36,29 @@ export default function AdminLogin() {
                 setLoading2(true)
 
                 setTimeout(async () => {
+                    formik.setSubmitting(false)
                     const res = await fetch('/api/admin/login', {
                         method: 'POST',
                         body: JSON.stringify(values)
                     })
-                    const data = await res.json()
 
                     setLoading2(false)
                     
                     if (res.status === 201) {
+                        const data = await res.json()
                         sessionStorage.setItem("adminAccount", JSON.stringify(data))
                         switch(data.role) {
                             case "Lãnh đạo công ty": 
                                 router.push("/admin/companyManager")
                                 break
                             case "Trưởng điểm tập kết": 
-                                router.push("/admin/gatheringPointManager")
+                                router.push("/admin/gatheringPointManager/accountManage")
                                 break
                             case "Trưởng điểm giao dịch":
-                                router.push("/admin/tradingPointManager")
+                                router.push("/admin/tradingPointManager/accountManage")
                                 break
                             case "Nhân viên tập kết":
-                                router.push("/admin/tradingPointStaff")
+                                router.push("/admin/gatheringPointStaff/orderFromGatheringPoint")
                                 break
                             case "Nhân viên giao dịch":
                                 router.push("/admin/tradingPointStaff/createOrder")

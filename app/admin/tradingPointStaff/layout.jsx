@@ -9,8 +9,10 @@ import { TbPackageExport } from "react-icons/tb";
 import { TbBoxOff } from "react-icons/tb";
 import { ImCheckboxChecked } from "react-icons/im";
 import { BsFillPinAngleFill } from "react-icons/bs";
+import { FaShippingFast } from "react-icons/fa";
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Layout ({ children }) {
     const [account, setAccount] = useState({})
@@ -38,38 +40,44 @@ export default function Layout ({ children }) {
                 </div>
 
                 <div className="flex p-8 gap-20 mt-[70px]">
-                    <div className="relative w-[300px] h-[275px] z-0 rounded-md shadow-lg bg-slate-100 p-4 flex flex-col gap-2 kanit font-bold">
+                    <div className="relative w-[300px] h-[320px] z-0 rounded-md shadow-lg bg-slate-100 p-4 flex flex-col gap-2 kanit font-bold">
                         <BsFillPinAngleFill className="absolute -top-4 -left-4 -scale-x-100" size={30} color="#FF5B00"/>
-                        <div className="w-full h-[40px] bg-white rounded flex gap-2 items-center p-4 text-[#FF5B00] hover:scale-105 hover:bg-slate-300 cursor-pointer">
+                        <Link href="/admin/tradingPointStaff/createOrder" className="w-full h-[40px] no-underline bg-white rounded flex gap-2 items-center p-4 text-[#FF5B00] hover:scale-105 hover:bg-slate-300 cursor-pointer">
                             <div className="w-[30px]">
                                 <FaPenToSquare size={20}/>
                             </div>
                             <p>Tạo đơn hàng</p>
-                        </div>
-                        <div className="w-full h-[40px] bg-white rounded flex gap-2 items-center p-4 text-[#FF5B00] hover:scale-105 hover:bg-slate-300 cursor-pointer">
+                        </Link>
+                        <Link href="/admin/tradingPointStaff/sendOrder" className="w-full h-[40px] no-underline bg-white rounded flex gap-2 items-center p-4 text-[#FF5B00] hover:scale-105 hover:bg-slate-300 cursor-pointer">
+                            <div className="w-[30px]">
+                                <TbPackageExport size={25}/>
+                            </div>
+                            <p>Hàng đợi phê duyệt</p>
+                        </Link>
+                        <Link href="/admin/tradingPointStaff/receiveOrder" className="w-full h-[40px] no-underline bg-white rounded flex gap-2 items-center p-4 text-[#FF5B00] hover:scale-105 hover:bg-slate-300 cursor-pointer">
                             <div className="w-[30px]">
                                 <TbPackageImport size={25}/>
                             </div>
                             <p>Hàng nhận vào</p>
-                        </div>
-                        <div className="w-full h-[40px] bg-white rounded flex gap-2 items-center p-4 text-[#FF5B00] hover:scale-105 hover:bg-slate-300 cursor-pointer">
+                        </Link>
+                        <Link href="/admin/tradingPointStaff/shippingOrder" className="w-full h-[40px] no-underline bg-white rounded flex gap-2 items-center p-4 text-[#FF5B00] hover:scale-105 hover:bg-slate-300 cursor-pointer">
                             <div className="w-[30px]">
-                                <TbPackageExport size={25}/>
+                                <FaShippingFast size={25}/>
                             </div>
-                            <p>Hàng gửi đi</p>
-                        </div>
-                        <div className="w-full h-[40px] bg-white rounded flex gap-2 items-center p-4 text-[#FF5B00] hover:scale-105 hover:bg-slate-300 cursor-pointer">
+                            <p>Hàng đang giao</p>
+                        </Link>
+                        <Link href="/admin/tradingPointStaff/shippingSuccess" className="w-full h-[40px] bg-white rounded flex gap-2 items-center p-4 text-[#FF5B00] hover:scale-105 hover:bg-slate-300 cursor-pointer">
                             <div className="w-[30px]">
                                 <ImCheckboxChecked size={20}/>
                             </div>
                             <p>Hàng chuyển thành công</p>
-                        </div>
-                        <div className="w-full h-[40px] bg-white rounded flex gap-2 items-center p-4 text-[#FF5B00] hover:scale-105 hover:bg-slate-300 cursor-pointer">
+                        </Link>
+                        <Link href="/admin/tradingPointStaff/shippingFail" className="w-full h-[40px] bg-white rounded flex gap-2 items-center p-4 text-[#FF5B00] hover:scale-105 hover:bg-slate-300 cursor-pointer">
                             <div className="w-[30px]">
                                 <TbBoxOff size={25}/>
                             </div>
                             <p>Hàng tồn đọng</p>
-                        </div>
+                        </Link>
                     </div>
                     {children}
                 </div>
