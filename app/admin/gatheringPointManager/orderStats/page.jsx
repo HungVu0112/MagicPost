@@ -62,14 +62,14 @@ export default function OrderStat () {
     }, [])
 
     return (
-        <div className="w-[70%] shadow-lg p-10 kanit text-[#FF5B00]">
+        <div className="xl:w-[70%] w-[95%] mr-auto ml-auto shadow-lg p-10 kanit text-[#FF5B00]">
             <h1 className="font-bold text-center text-xl">BẢNG THỐNG KÊ HÀNG ĐẾN VÀ HÀNG ĐI TẠI ĐIỂM TẬP KẾT</h1>
-            <div className="flex mt-10 justify-between">
-                <div className="w-[600px] h-[500px]">
+            <div className="flex xl:flex-row flex-col xl:justify-between">
+                <div className="xl:w-[60%] xl:h-[500px] w-[100%]">
                     {chartData && <BarChart chartData={chartData} />}
                 </div>
-                <div className="flex flex-col justify-center">
-                    <div className="w-[350px] h-[200px] shadow-md p-4">
+                <div className="xl:flex xl:flex-col grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-2 justify-center">
+                    <div className="xl:w-[350px] h-[200px] shadow-md p-4">
                         <div className="flex gap-2">
                             <h1 className="font-bold">Số hàng đến : </h1> 
                             <p>{amount?.importOrder?.length}</p>
@@ -80,7 +80,7 @@ export default function OrderStat () {
                             })}
                         </div>
                     </div>
-                    <div className="w-[350px] h-[200px] shadow-md p-4">
+                    <div className="xl:w-[350px] h-[200px] shadow-md p-4">
                         <div className="flex gap-2">
                             <h1 className="font-bold">Số hàng đi : </h1> 
                             <p>{amount?.exportOrder?.length}</p>

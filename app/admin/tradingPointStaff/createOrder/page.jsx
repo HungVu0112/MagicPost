@@ -220,7 +220,7 @@ export default function CreateOrder() {
     }, [district_2])
 
     return (
-        <form onSubmit={formik.handleSubmit} className="relative p-10 shadow-lg w-[60%] text-[#FF5B00] kanit">
+        <form onSubmit={formik.handleSubmit} className="relative xl:w-[70%] w-[95%] mr-auto ml-auto shadow-lg p-10 text-[#FF5B00] kanit">
             <div className="flex items-center gap-3 font-bold text-[32px] mb-6">
                 <FaEdit />
                 <h1>TẠO ĐƠN HÀNG</h1>
@@ -232,9 +232,9 @@ export default function CreateOrder() {
                     <h1>Thông tin người gửi</h1>
                 </div>
                 
-                <div className="flex gap-4 mt-4">
+                <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 mt-4">
                     <div>
-                        <div className='flex items-center w-[250px] text-[#A9A9A9] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2 cursor-pointer'>
+                        <div className='flex items-center  text-[#A9A9A9] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2 cursor-pointer'>
                             <FaUser size={18}/>
                             <input type="text" {...formik.getFieldProps('sender_name')} name="sender_name" className='w-full text-[16px] focus:outline-none focus:placeholder:text-[#FF5B00]' placeholder="Họ và tên" />
                         </div>
@@ -247,7 +247,7 @@ export default function CreateOrder() {
                     </div>
                     
                     <div>
-                        <div className='flex items-center w-[250px] text-[#A9A9A9] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2 cursor-pointer'>
+                        <div className='flex items-center  text-[#A9A9A9] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2 cursor-pointer'>
                             <FaPhone size={18}/>
                             <input 
                                 type="text" 
@@ -279,7 +279,7 @@ export default function CreateOrder() {
                     </div>
                     
                     <div>
-                        <div className='flex items-center w-[250px] text-[#A9A9A9] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2 cursor-pointer'>
+                        <div className='flex items-center  text-[#A9A9A9] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2 cursor-pointer'>
                             <FaSignsPost size={18}/>
                             <input 
                                 type="text" 
@@ -309,10 +309,8 @@ export default function CreateOrder() {
                             </div>
                         }
                     </div>
-                </div>
-                <div className="flex mt-3 gap-4">
                     <div>
-                        <div className='flex items-center text-[#A9A9A9] w-[250px] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2'>
+                        <div className='flex items-center text-[#A9A9A9]  h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2'>
                             <FaTreeCity />
                             <select {...formik.getFieldProps('sender_city')} name="sender_city" id="" className='w-full text-[16px] focus:outline-none focus:placeholder:text-[#FF5B00] cursor-pointer' onChange={(e) => {formik.setFieldValue('sender_city', e.target.value); setProvince_1(e.target.value)}}>
                                 <option value="">Tỉnh / Thành phố</option>
@@ -329,7 +327,7 @@ export default function CreateOrder() {
                         }
                     </div>
                     <div>
-                        <div className='flex items-center text-[#A9A9A9] w-[250px] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2'>
+                        <div className='flex items-center text-[#A9A9A9]  h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2'>
                             <MdOutlineLocationCity />
                             <select {...formik.getFieldProps('sender_district')} name="sender_district" id="" className='w-full text-[16px] focus:outline-none focus:placeholder:text-[#FF5B00] cursor-pointer' onChange={(e) => {formik.setFieldValue('sender_district', e.target.value); setDistrict_1(e.target.value)}}>
                                 <option value="">Quận / Huyện</option>
@@ -346,7 +344,7 @@ export default function CreateOrder() {
                         }
                     </div>
                     <div>
-                        <div className='flex items-center text-[#A9A9A9] w-[250px] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2'>
+                        <div className='flex items-center text-[#A9A9A9]  h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2'>
                             <FaMountainCity />
                             <select {...formik.getFieldProps('sender_ward')} name="sender_ward" id="" className='w-full text-[16px] focus:outline-none focus:placeholder:text-[#FF5B00] cursor-pointer' onChange={(e) => {formik.setFieldValue('sender_ward', e.target.value); setWard_1(e.target.value)}}>
                                 <option value="">Phường / Xã</option>
@@ -381,9 +379,9 @@ export default function CreateOrder() {
                     <h1>Thông tin người nhận</h1>
                 </div>
                 
-                <div className="flex gap-4 mt-4">
+                <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 mt-4">
                     <div>
-                        <div className='flex items-center w-[250px] text-[#A9A9A9] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2 cursor-pointer'>
+                        <div className='flex items-center text-[#A9A9A9] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2 cursor-pointer'>
                             <FaUser size={18}/>
                             <input type="text" {...formik.getFieldProps('receiver_name')} name="receiver_name" className='w-full text-[16px] focus:outline-none focus:placeholder:text-[#FF5B00]' placeholder="Họ và tên"/>
                         </div>
@@ -395,7 +393,7 @@ export default function CreateOrder() {
                         }
                     </div>
                     <div>
-                        <div className='flex items-center w-[250px] text-[#A9A9A9] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2 cursor-pointer'>
+                        <div className='flex items-center  text-[#A9A9A9] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2 cursor-pointer'>
                             <FaPhone size={18}/>
                             <input 
                                 type="text" 
@@ -426,7 +424,7 @@ export default function CreateOrder() {
                         }
                     </div>
                     <div>
-                        <div className='flex items-center w-[250px] text-[#A9A9A9] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2 cursor-pointer'>
+                        <div className='flex items-center  text-[#A9A9A9] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2 cursor-pointer'>
                             <FaSignsPost size={18}/>
                             <input 
                                 type="text" 
@@ -456,10 +454,8 @@ export default function CreateOrder() {
                             </div>
                         }
                     </div>
-                </div>
-                <div className="flex mt-3 gap-4">
                     <div>
-                        <div className='flex items-center text-[#A9A9A9] w-[250px] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2'>
+                        <div className='flex items-center text-[#A9A9A9]  h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2'>
                             <FaTreeCity />
                             <select {...formik.getFieldProps('receiver_city')} name="receiver_city" id="" className='w-full text-[16px] focus:outline-none focus:placeholder:text-[#FF5B00] cursor-pointer' onChange={(e) => {formik.setFieldValue('receiver_city', e.target.value); setProvince_2(e.target.value)}}>
                                 <option value="">Tỉnh / Thành phố</option>
@@ -476,7 +472,7 @@ export default function CreateOrder() {
                         }
                     </div>
                     <div>
-                        <div className='flex items-center text-[#A9A9A9] w-[250px] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2'>
+                        <div className='flex items-center text-[#A9A9A9]  h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2'>
                             <MdOutlineLocationCity />
                             <select {...formik.getFieldProps('receiver_district')} name="receiver_district" id="" className='w-full text-[16px] focus:outline-none focus:placeholder:text-[#FF5B00] cursor-pointer' onChange={(e) => {formik.setFieldValue('receiver_district', e.target.value); setDistrict_2(e.target.value)}}>
                                 <option value="">Quận / Huyện</option>
@@ -493,7 +489,7 @@ export default function CreateOrder() {
                         }
                     </div>
                     <div>
-                        <div className='flex items-center text-[#A9A9A9] w-[250px] h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2'>
+                        <div className='flex items-center text-[#A9A9A9]  h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2'>
                             <FaMountainCity />
                             <select {...formik.getFieldProps('receiver_ward')} name="receiver_ward" id="" className='w-full text-[16px] focus:outline-none focus:placeholder:text-[#FF5B00] cursor-pointer' onChange={(e) => {formik.setFieldValue('receiver_ward', e.target.value); setWard_2(e.target.value)}}>
                                 <option value="">Phường / Xã</option>
@@ -510,6 +506,7 @@ export default function CreateOrder() {
                         }
                     </div>
                 </div>
+                
                 <div className="mt-3 flex items-center text-[#A9A9A9] w-full h-[60px] focus-within:border-[#FF5B00] focus-within:border-2 focus-within:text-[#FF5B00] rounded shadow-md p-4 gap-2">
                     <FaAddressCard />
                     <input type="text" {...formik.getFieldProps('receiver_address')} name="receiver_address" placeholder="Địa chỉ cụ thể" className="w-full text-[16px] focus:outline-none focus:placeholder:text-[#FF5B00]"/>
@@ -528,8 +525,8 @@ export default function CreateOrder() {
                     <h1>Thông tin hàng hóa</h1>
                 </div>
                 
-                <div className="mt-4 flex gap-3">
-                    <div className="text-[#FF5B00] w-[300px] h-[90px] focus-within:border-[#FF5B00] focus-within:border-2 rounded shadow-md p-4">
+                <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 mt-4">
+                    <div className="text-[#FF5B00] h-[90px] focus-within:border-[#FF5B00] focus-within:border-2 rounded shadow-md p-4">
                         <p className="font-bold">Loại hàng hóa :</p>
                         <div className="flex gap-10 mt-2">
                             <div className="flex items-center gap-2">
@@ -543,7 +540,7 @@ export default function CreateOrder() {
                         </div>
                     </div>
                     <div>
-                        <div className="text-[#FF5B00] w-[270px] h-[90px] focus-within:border-[#FF5B00] focus-within:border-2 rounded shadow-md p-4">
+                        <div className="text-[#FF5B00] h-[90px] focus-within:border-[#FF5B00] focus-within:border-2 rounded shadow-md p-4">
                             <p className="font-bold">Khối lượng :</p>
                             <input type="number" {...formik.getFieldProps('goods_weight')} name="goods_weight" placeholder="Cân nặng" className="text-[#A9A9A9] mt-2 text-[16px] focus:outline-none"/> g
                         </div>
@@ -555,7 +552,7 @@ export default function CreateOrder() {
                         }
                     </div>
                     <div>
-                        <div className="text-[#FF5B00] w-[270px] h-[90px] focus-within:border-[#FF5B00] focus-within:border-2 rounded shadow-md p-4">
+                        <div className="text-[#FF5B00] h-[90px] focus-within:border-[#FF5B00] focus-within:border-2 rounded shadow-md p-4">
                             <p className="font-bold">Số lượng :</p>
                             <input type="number" {...formik.getFieldProps('goods_amount')} name="goods_amount" placeholder="Số hàng hóa" className="mt-2 text-[16px] text-[#A9A9A9] focus:outline-none"/>
                         </div>
@@ -566,11 +563,8 @@ export default function CreateOrder() {
                             </div>
                         }
                     </div>
-                </div>
-
-                <div className="mt-4 flex gap-3">
                     <div>
-                        <div className="text-[#FF5B00] w-[270px] h-[90px] focus-within:border-[#FF5B00] focus-within:border-2 rounded shadow-md p-4">
+                        <div className="text-[#FF5B00] h-[90px] focus-within:border-[#FF5B00] focus-within:border-2 rounded shadow-md p-4">
                             <p className="font-bold">Chiều dài :</p>
                             <input type="number" {...formik.getFieldProps('goods_length')} name="goods_length" placeholder="Chiều dài" className="mt-2 text-[16px] text-[#A9A9A9] focus:outline-none"/> cm
                         </div>
@@ -582,7 +576,7 @@ export default function CreateOrder() {
                         }
                     </div>
                     <div>
-                        <div className="text-[#FF5B00] w-[270px] h-[90px] focus-within:border-[#FF5B00] focus-within:border-2 rounded shadow-md p-4">
+                        <div className="text-[#FF5B00] h-[90px] focus-within:border-[#FF5B00] focus-within:border-2 rounded shadow-md p-4">
                             <p className="font-bold">Chiều rộng :</p>
                             <input type="number" {...formik.getFieldProps('goods_width')} name="goods_width" placeholder="Chiều rộng" className="mt-2 text-[16px] text-[#A9A9A9] focus:outline-none"/> cm
                         </div>
@@ -594,7 +588,7 @@ export default function CreateOrder() {
                         }
                     </div>
                     <div>
-                        <div className="text-[#FF5B00] w-[270px] h-[90px] focus-within:border-[#FF5B00] focus-within:border-2 rounded shadow-md p-4">
+                        <div className="text-[#FF5B00] h-[90px] focus-within:border-[#FF5B00] focus-within:border-2 rounded shadow-md p-4">
                             <p className="font-bold">Chiều cao :</p>
                             <input type="number" {...formik.getFieldProps('goods_height')} name="goods_height" placeholder="Chiều cao" className="mt-2 text-[16px] text-[#A9A9A9] focus:outline-none"/> cm
                         </div>

@@ -86,15 +86,37 @@ input[type=number] {
       right: 0.5em;
       margin-left: -50%;
   }
+  .ver-line-middle {
+    overflow: hidden;
+    text-align: center;
+    rotate: 90deg;
+  }
+  .ver-line-middle::after, .ver-line-middle::before {
+    background-color: #A9A9A9;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+  }
+  .ver-line-middle::after {
+      left: 2px;
+      margin-right: -50%;
+  }
+  .ver-line-middle::before {
+      right: 2px;
+      margin-left: -50%;
+  }
   .warning {
     @apply bg-yellow-500 text-white
   }
-
   .success {
     @apply bg-green-500 text-white
   }
-
   .fade-in {
     animation: fade-in 200ms ease-in-out forwards;
   }
+
+  
 }

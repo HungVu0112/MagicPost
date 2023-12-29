@@ -44,7 +44,7 @@ export default function Order({ order }) {
     }
 
     return (
-        <div onClick={handleClick} className="flex items-center relative mb-3 flex gap-4 w-[950px] min-h-[180px] p-3 rounded shadow-md hover:border-2 hover:border-[#FF5B00] hover:text-[#FF5B00] cursor-pointer">    
+        <div onClick={handleClick} className="flex items-center relative mb-3 flex gap-4 min-h-[180px] p-3 rounded shadow-md hover:border-2 hover:border-[#FF5B00] hover:text-[#FF5B00] cursor-pointer">    
             <img 
                 src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost:3000/admin/tradingPointStaff/order/${order.orderID}`}
                 width={150}

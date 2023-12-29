@@ -9,7 +9,11 @@ export const GET = async (req, { params }) => {
 
         const order = await Order.findOne({ orderID: id })
 
-        return new Response(JSON.stringify(order), { status: 201 })
+        if (order) {
+            return new Response(JSON.stringify(order), { status: 201 })
+        } else {
+            return new Response("", { status: 401 })
+        }
     } catch (error) {
         console.log(error)
         return new Response(error ,{ status: 501 })

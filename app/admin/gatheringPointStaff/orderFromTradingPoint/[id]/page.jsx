@@ -28,7 +28,7 @@ export default function Order () {
 
     return (
         <>
-            <div className=" w-[80%]">
+            <div className="xl:w-[80%] w-[95%] mr-auto ml-auto">
                 <div className="shadow-lg p-4" ref={ref}>
                     <div className="flex justify-around">
                         <div className='flex items-center justify-center gap-2 text-[#FF5B00]'>

@@ -92,7 +92,7 @@ export default function OrderStats() {
     }, [province])
 
     return (
-        <div className="w-[70%] shadow-lg p-10">
+        <div className="xl:w-[70%] w-[95%] mr-auto ml-auto shadow-lg p-10">
             <div className="flex items-center gap-6">
                 <select value={province} name="" id="" className="w-[200px] text-[#A9A9A9] kanit border-slate-100 border-2 p-2 rounded-md focus:outline-[#ff5b00] focus:text-[#ff5b00] cursor-pointer" onChange={(e) => setProvince(e.target.value)}>
                     <option value="">Tỉnh / Thành phố</option>
@@ -107,12 +107,12 @@ export default function OrderStats() {
                     })}
                 </select>
             </div>
-            <div className="flex justify-between mt-6">
-                <div className="w-[600px] h-[500px]">
+            <div className="flex xl:flex-row flex-col xl:justify-between mt-6">
+                <div className="xl:w-[60%] xl:h-[500px] w-[100%]">
                     {chartData && <BarChart chartData={chartData} />}
                 </div>
-                {tradingPoint && <div className="flex flex-col justify-center kanit">
-                    <div className="w-[350px] h-[200px] shadow-md p-4">
+                {tradingPoint && <div className="xl:flex xl:flex-col grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-2 justify-center kanit">
+                    <div className="xl:w-[350px] h-[200px] shadow-md p-4">
                         <div className="flex gap-2 text-[#ff5b00]">
                             <h1 className="font-bold">Số hàng nhận : </h1> 
                             <p>{tradingPoint?.importOrder?.length}</p>
@@ -123,7 +123,7 @@ export default function OrderStats() {
                             })}
                         </div>
                     </div>
-                    <div className="w-[350px] h-[200px] shadow-md p-4">
+                    <div className="xl:w-[350px] h-[200px] shadow-md p-4">
                         <div className="flex gap-2 text-[#ff5b00]">
                             <h1 className="font-bold">Số hàng gửi : </h1> 
                             <p>{tradingPoint?.exportOrder?.length}</p>
@@ -134,7 +134,7 @@ export default function OrderStats() {
                             })}
                         </div>
                     </div>
-                </div>} 
+                </div>}
             </div>
         </div>
     )

@@ -64,7 +64,7 @@ export default function GatheringPoint () {
     console.log(manager)
 
     return (
-        <div className="w-[70%] shadow-lg p-10">
+        <div className="xl:w-[70%] w-[95%] mr-auto ml-auto shadow-lg p-10">
             <div className="flex gap-2 text-[#ff5b00] text-xl kanit">
                 <h1 className="font-bold">Điểm tập kết : </h1>
                 <h1>{gatheringPoint?.location}</h1>
@@ -86,7 +86,7 @@ export default function GatheringPoint () {
                     })}
                 </select>
             </div>
-            <div className="grid grid-cols-3 gap-2 mt-6">
+            <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-2 mt-6">
                 {district === "Tất cả" && tradingPoint?.map(point_t => {
                     return <div key={point_t.id} className="p-4 kanit shadow-md">
                         <h1 className="text-2xl text-[#ff5b00]">{point_t.name}</h1>

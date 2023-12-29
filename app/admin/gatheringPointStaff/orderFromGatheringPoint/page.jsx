@@ -26,7 +26,7 @@ export default function SendOrder() {
     }, [])
 
     return (
-        <div className="shadow p-8 min-w-[40%] kanit">
+        <div className="xl:w-[70%] w-[95%] mr-auto ml-auto shadow-lg p-10 kanit">
             <div className="flex gap-2 text-[#FF5B00]">
                 <TbPackageImport size={30} />
                 <h1 className="font-bold kanit text-2xl">Đơn gửi từ điểm tập kết khác</h1>

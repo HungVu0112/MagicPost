@@ -50,7 +50,7 @@ export default function PointManage () {
     }, [province])
 
     return (
-        <div className="w-[70%] shadow-lg p-10">
+        <div className="xl:w-[70%] w-[95%] mr-auto ml-auto shadow-lg p-10">
             <div className="flex justify-between items-center">
                 <h1 className="font-bold text-xl kanit text-[#ff5b00]">Các điểm tập kết :</h1>
                 <select value={province} name="" id="" className="w-[200px] text-[#A9A9A9] kanit border-slate-100 border-2 p-2 rounded-md focus:outline-[#ff5b00] focus:text-[#ff5b00] cursor-pointer" onChange={(e) => setProvince(e.target.value)}>
@@ -60,7 +60,7 @@ export default function PointManage () {
                     })}
                 </select>
             </div>
-            <div className="grid grid-cols-3 gap-2 mt-6">
+            <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-2 mt-6">
                 {province === "Tất cả" && points?.map(point_t => {
                     return <div key={point_t.id} className="p-4 kanit shadow-md">
                         <h1 className="text-2xl text-[#ff5b00]">{point_t.location}</h1>

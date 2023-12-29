@@ -28,12 +28,12 @@ export default function AccountManage () {
     }, [])
 
     return (
-        <div className="w-[70%] shadow-lg p-10">
+        <div className="xl:w-[70%] w-[95%] mr-auto ml-auto shadow-lg p-10">
             <div className="flex gap-2 text-[#FF5B00]">
                 <BsFillPeopleFill size={30} /> 
                 <h1 className="font-bold kanit text-2xl">Danh sách nhân viên</h1>
             </div>
-            <div className="w-[100%] flex gap-2 flex-wrap mt-6">
+            <div className="w-[100%] grid xl:grid-cols-2 lg:grid-cols-2 grid-cols-1 gap-2 mt-6">
                 {staffs && staffs?.map(staff => {
                     return <Staff key={staff.name} staff={staff} />
                 })}
