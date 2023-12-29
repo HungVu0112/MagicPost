@@ -49,7 +49,7 @@ export default function AdminLogin() {
                         sessionStorage.setItem("adminAccount", JSON.stringify(data))
                         switch(data.role) {
                             case "Lãnh đạo công ty": 
-                                router.push("/admin/companyManager")
+                                router.push("/admin/companyManager/pointManage")
                                 break
                             case "Trưởng điểm tập kết": 
                                 router.push("/admin/gatheringPointManager/accountManage")
